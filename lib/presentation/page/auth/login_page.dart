@@ -1,55 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:kurumo_app_practice/presentation/component/input_form.dart';
 import 'package:kurumo_app_practice/presentation/util/color.dart';
 
 import '../../component/button.dart';
 
-class LoginPage extends StatefulWidget {
+//providerはグローバルに出す
+final _emailTextEditingController = Provider.autoDispose<TextEditingController>(
+  (ref) => TextEditingController(),
+);
+final _passwordTextEditingController =
+    Provider.autoDispose<TextEditingController>(
+  (_) => TextEditingController(),
+);
+
+class LoginPage extends HookConsumerWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    //これで監視している。
+    final emailController = ref.watch(_emailTextEditingController);
+    final passwordController = ref.watch(_passwordTextEditingController);
 
-class _LoginPageState extends State<LoginPage> {
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("今tには"),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(children: [
           const SizedBox(
             height: 12,
           ),
-          TextFormField(
-            decoration: const InputDecoration(
-              fillColor: ColorManager.fillGray,
-              filled: true,
-              border: InputBorder.none,
-              hintText: "メールアドレス",
-              labelText: "メールアドレス",
-              labelStyle: TextStyle(
-                color: ColorManager.textGray,
-              ),
-            ),
+          InputForm(
+            controller: emailController,
+            hintText: "メールアドレス",
+            labelText: "メールアドレス",
           ),
           const SizedBox(
             height: 8,
           ),
-          TextFormField(
-            decoration: const InputDecoration(
-              suffixIcon: Icon(Icons.hide_source_outlined),
-              fillColor: ColorManager.fillGray,
-              filled: true,
-              border: InputBorder.none,
-              hintText: "パスワード",
-              labelText: "パスワード",
-              labelStyle: TextStyle(
-                color: ColorManager.textGray,
-              ),
-            ),
+          InputForm(
+            controller: passwordController,
+            icon: Icons.hide_source_outlined,
+            hintText: "パスワード",
+            labelText: "パスワード",
           ),
           const SizedBox(
             height: 16,
