@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kurumo_app_practice/presentation/page/auth/login_page.dart';
-import 'package:kurumo_app_practice/presentation/util/color.dart';
+import 'package:kurumo_app_practice/views/auth/login_page.dart';
+import 'package:kurumo_app_practice/views/util/color.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
