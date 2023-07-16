@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kurumo_app_practice/page/util/color.dart';
+import 'package:kurumo_app_practice/views/util/color.dart';
 
 class InputForm extends HookConsumerWidget {
   const InputForm({
