@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kurumo_app_practice/views/components/input_form.dart';
+import 'package:kurumo_app_practice/views/pages/auth/register_select_page.dart';
+import 'package:kurumo_app_practice/views/pages/trader_list/trader_list_page.dart';
 import 'package:kurumo_app_practice/views/util/color.dart';
 
 import '../../components/button.dart';
@@ -14,6 +16,8 @@ class LoginPage extends HookConsumerWidget {
     //HookWidgetを使っているためProviderは書かなくていい。
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
+
+    Future<void> authLogin() async {}
 
     return Scaffold(
       body: Padding(
@@ -55,7 +59,14 @@ class LoginPage extends HookConsumerWidget {
               height: 32,
             ),
             Button(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const TraderListPage()),
+                  ),
+                );
+              },
               backgroundColor: ColorManager.primary,
               text: "ログイン",
             ),
@@ -85,7 +96,14 @@ class LoginPage extends HookConsumerWidget {
               height: 74,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const RegisterSelectPage()),
+                  ),
+                );
+              },
               child: const Text(
                 '新規登録',
               ),
