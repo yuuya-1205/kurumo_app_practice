@@ -9,6 +9,8 @@ class Button extends StatelessWidget {
     this.onPrimary,
     this.style,
     this.backgroundColor,
+    this.width,
+    this.height,
   });
   final VoidCallback? onPressed;
   final String text;
@@ -16,18 +18,32 @@ class Button extends StatelessWidget {
   final Color? onPrimary;
   final TextStyle? style;
   final Color? backgroundColor;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: backgroundColor,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
+    return Container(
+      height: 56,
+      width: double.infinity,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: backgroundColor,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(8),
+            ),
+          ),
+        ),
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
-      onPressed: onPressed,
-      child: Text(text),
     );
   }
 }

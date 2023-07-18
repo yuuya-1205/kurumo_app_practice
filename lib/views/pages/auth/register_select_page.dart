@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:kurumo_app_practice/views/pages/auth/register_select_device_page.dart';
 
 class RegisterSelectPage extends HookConsumerWidget {
   const RegisterSelectPage({super.key});
@@ -18,7 +19,14 @@ class RegisterSelectPage extends HookConsumerWidget {
               height: 145,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const RegisterSelectPage()),
+                  ),
+                );
+              },
               child: SizedBox(
                 width: double.infinity,
                 height: 160,
@@ -29,7 +37,14 @@ class RegisterSelectPage extends HookConsumerWidget {
               height: 56,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const RegisterSelectDevicePage()),
+                  ),
+                );
+              },
               child: SizedBox(
                 width: double.infinity,
                 height: 160,
