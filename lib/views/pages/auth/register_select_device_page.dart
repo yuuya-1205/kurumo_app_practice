@@ -18,7 +18,7 @@ class RegisterSelectDevicePage extends HookConsumerWidget {
         child: Column(
           children: [
             const SizedBox(
-              height: 145,
+              height: 194,
             ),
             Button(
               width: double.infinity,
@@ -34,7 +34,40 @@ class RegisterSelectDevicePage extends HookConsumerWidget {
               text: "メールアドレスで続ける",
             ),
             const SizedBox(
-              height: 56,
+              height: 50,
+            ),
+            const Text("または"),
+            const SizedBox(
+              height: 27,
+            ),
+            Button(
+              width: double.infinity,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const RegisterSendEmailPage()),
+                  ),
+                );
+              },
+              backgroundColor: ColorManager.primary,
+              text: "Googleで続ける",
+            ),
+            const SizedBox(
+              height: 18,
+            ),
+            Button(
+              width: double.infinity,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const RegisterSendEmailPage()),
+                  ),
+                );
+              },
+              backgroundColor: ColorManager.primary,
+              text: "Appleで続ける",
             ),
           ],
         ),

@@ -20,17 +20,19 @@ class InputForm extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-        suffixIcon: Icon(icon),
-        fillColor: ColorManager.fillGray,
-        filled: true,
-        border: InputBorder.none,
-        hintText: hintText,
-        labelText: labelText,
-        labelStyle: const TextStyle(
-          color: ColorManager.textGray,
+    return Flexible(
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          suffixIcon: Icon(icon),
+          fillColor: ColorManager.fillGray,
+          filled: true,
+          border: InputBorder.none,
+          hintText: hintText,
+          labelText: labelText,
+          labelStyle: const TextStyle(
+            color: ColorManager.textGray,
+          ),
         ),
       ),
     );
